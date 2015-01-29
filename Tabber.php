@@ -11,11 +11,10 @@ $wgExtensionCredits['parserhook'][] = array(
 	'descriptionmsg' => 'tabber-desc',
 	'version' => '1.3.0'
 );
-$dir = dirname(__FILE__) . '/';
 
 # Internationalisation file
 $wgMessagesDirs['Tabber'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['Tabber'] = $dir . 'Tabber.i18n.php';
+$wgExtensionMessagesFiles['Tabber'] = __DIR__ . '/Tabber.i18n.php';
 
 $wgExtensionFunctions[] = "wfTabber";
 
