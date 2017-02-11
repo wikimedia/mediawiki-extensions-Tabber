@@ -1,63 +1,37 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of a MediaWiki extension and is not a valid entry point.' );
-}
-
-# Credits
-$wgExtensionCredits['parserhook'][] = array(
-	'name' => 'Tabber',
-	'author' => 'Eric Fortin',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:Tabber',
-	'descriptionmsg' => 'tabber-desc',
-	'version' => '1.3.0'
-);
-
-# Internationalisation file
-$wgMessagesDirs['Tabber'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['Tabber'] = __DIR__ . '/Tabber.i18n.php';
-
-$wgExtensionFunctions[] = "wfTabber";
-
-// function adds the wiki extension
-function wfTabber() {
-	global $wgParser;
-	$wgParser->setHook( "tabber", "renderTabber" );
-}
-
-function renderTabber( $paramstring, $params = array() ){
-	global $wgParser, $wgScriptPath;
-	$wgParser->disableCache();
-
-	$path = $wgScriptPath . '/extensions/Tabber/';
-
-	$htmlHeader = '<script type="text/javascript" src="'.$path.'Tabber.js"></script>'
-		. '<link rel="stylesheet" href="'.$path.'Tabber.css" TYPE="text/css" MEDIA="screen">'
-		. '<div class="tabber">';
-
-	$htmlFooter = '</div>';
-
-	$htmlTabs = '';
-
-	$arr = explode("|-|", $paramstring);
-	foreach($arr as $tab){
-		$htmlTabs .= buildTab($tab);
-	}
-
-	return $htmlHeader . $htmlTabs . $htmlFooter;
-}
-
-function buildTab($tab){
-	global $wgParser;
-
-	if( trim($tab) == '' ) return '';
-
-	$arr = preg_split("/=/",$tab);
-	$tabName = array_shift( $arr );
-	$tabBody = $wgParser->recursiveTagParse( implode("=",$arr) );
-
-	$tab = '<div class="tabbertab" title="'.htmlspecialchars($tabName).'">'
-		. '<p>'.$tabBody.'</p>'
-		. '</div>';
-
-	return $tab;
-}
+/**
+ * Tabber
+ * Tabber Main File
+ *
+ * @author		Eric Fortin, Alexia E. Smith
+ * @license		GPL
+ * @package		Tabber
+ * @link		https://www.mediawiki.org/wiki/Extension:Tabber
+ *
+**/
+/******************************************/
+/* Credits                                */
+/******************************************/
+$credits = [
+	'path'				=> __FILE__,
+	'name'				=> 'Tabber',
+	'author'			=> ['Eric Fortin', 'Alexia E. Smith'],
+	'url'				=> 'https://www.mediawiki.org/wiki/Extension:Tabber',
+	'descriptionmsg'	=> 'tabber-desc',
+	'version'			=> '2.4'
+];
+$wgExtensionCredits['parserhook'][] = $credits;
+/******************************************/
+/* Language Strings, Page Aliases, Hooks  */
+/******************************************/
+$extDir = __DIR__.'/';
+$wgMessagesDirs['Tabber']					= "{$extDir}/i18n";
+$wgExtensionMessagesFiles['Tabber']			= "{$extDir}/Tabber.i18n.php";
+$wgAutoloadClasses['TabberHooks']			= "{$extDir}/Tabber.hooks.php";
+$wgHooks['ParserFirstCallInit'][]			= 'TabberHooks::onParserFirstCallInit';
+$wgResourceModules['ext.Tabber']			= [
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'Tabber',
+	'styles'		=> ['css/tabber.css'],
+	'scripts'		=> ['js/tabber.js']
+];
