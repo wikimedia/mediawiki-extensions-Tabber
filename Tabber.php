@@ -7,12 +7,11 @@
  * @license		GPL
  * @package		Tabber
  * @link		https://www.mediawiki.org/wiki/Extension:Tabber
- *
-**/
+ */
 /******************************************/
 /* Credits                                */
 /******************************************/
-$credits = [
+$wgExtensionCredits['parserhook'][] = [
 	'path'				=> __FILE__,
 	'name'				=> 'Tabber',
 	'author'			=> ['Eric Fortin', 'Alexia E. Smith'],
@@ -20,16 +19,15 @@ $credits = [
 	'descriptionmsg'	=> 'tabber-desc',
 	'version'			=> '2.4'
 ];
-$wgExtensionCredits['parserhook'][] = $credits;
+
 /******************************************/
-/* Language Strings, Page Aliases, Hooks  */
+/* Language Strings, Hooks  */
 /******************************************/
-$extDir = __DIR__.'/';
-$wgMessagesDirs['Tabber']					= "{$extDir}/i18n";
-$wgExtensionMessagesFiles['Tabber']			= "{$extDir}/Tabber.i18n.php";
-$wgAutoloadClasses['TabberHooks']			= "{$extDir}/Tabber.hooks.php";
+$wgMessagesDirs['Tabber']					= __DIR__ . '/i18n';
+$wgExtensionMessagesFiles['Tabber']			= __DIR__ . '/Tabber.i18n.php';
+$wgAutoloadClasses['TabberHooks']			= __DIR__ . '/Tabber.hooks.php';
 $wgHooks['ParserFirstCallInit'][]			= 'TabberHooks::onParserFirstCallInit';
-$wgResourceModules['ext.Tabber']			= [
+$wgResourceModules['ext.tabber']			= [
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'Tabber',
 	'styles'		=> ['css/tabber.css'],
