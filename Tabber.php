@@ -24,7 +24,6 @@ $wgExtensionCredits['parserhook'][] = [
 /* Language Strings, Hooks  */
 /******************************************/
 $wgMessagesDirs['Tabber']					= __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['Tabber']			= __DIR__ . '/Tabber.i18n.php';
 $wgAutoloadClasses['TabberHooks']			= __DIR__ . '/Tabber.hooks.php';
 $wgHooks['ParserFirstCallInit'][]			= 'TabberHooks::onParserFirstCallInit';
 $wgResourceModules['ext.tabber']			= [
