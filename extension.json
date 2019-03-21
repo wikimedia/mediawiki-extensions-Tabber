@@ -7,6 +7,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Tabber",
 	"descriptionmsg": "tabber-desc",
+	"license-name": "GPL-3.0-or-later",
 	"type": "parserhook",
 	"MessagesDirs": {
 		"Tabber": [
