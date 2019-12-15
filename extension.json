@@ -19,10 +19,10 @@
 	"ResourceModules": {
 		"ext.tabber": {
 			"styles": [
-				"css/tabber.css"
+				"resources/tabber.css"
 			],
 			"scripts": [
-				"js/tabber.js"
+				"resources/tabber.js"
 			]
 		}
 	},
