@@ -14,7 +14,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"TabberHooks": "Tabber.hooks.php"
+		"TabberHooks": "TabberHooks.php"
 	},
 	"ResourceModules": {
 		"ext.tabber": {

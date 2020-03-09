@@ -12,7 +12,7 @@ class TabberHooks {
 	/**
 	 * Sets up this extension's parser functions.
 	 *
-	 * @param Parser $parser Parser object passed as a reference.
+	 * @param Parser &$parser Parser object passed as a reference.
 	 * @return bool
 	 */
 	public static function onParserFirstCallInit( Parser &$parser ) {
@@ -44,7 +44,7 @@ class TabberHooks {
 	/**
 	 * Build individual tab.
 	 *
-	 * @param string Tab information
+	 * @param string $tab Tab information
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 * @return string HTML

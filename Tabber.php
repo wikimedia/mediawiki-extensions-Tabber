@@ -14,7 +14,7 @@
 $wgExtensionCredits['parserhook'][] = [
 	'path'				=> __FILE__,
 	'name'				=> 'Tabber',
-	'author'			=> ['Eric Fortin', 'Alexia E. Smith'],
+	'author'			=> [ 'Eric Fortin', 'Alexia E. Smith' ],
 	'url'				=> 'https://www.mediawiki.org/wiki/Extension:Tabber',
 	'descriptionmsg'	=> 'tabber-desc',
 	'version'			=> '2.4'
@@ -29,6 +29,6 @@ $wgHooks['ParserFirstCallInit'][]			= 'TabberHooks::onParserFirstCallInit';
 $wgResourceModules['ext.tabber']			= [
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'Tabber',
-	'styles'		=> ['css/tabber.css'],
-	'scripts'		=> ['js/tabber.js']
+	'styles'		=> [ 'css/tabber.css' ],
+	'scripts'		=> [ 'js/tabber.js' ]
 ];
