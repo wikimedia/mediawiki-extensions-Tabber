@@ -1,11 +1,11 @@
-( function( $ ) {
-	$.fn.tabber = function() {
-		return this.each( function() {
+( function () {
+	$.fn.tabber = function () {
+		return this.each( function () {
 			// create tabs
 			var $this = $( this ),
-			    tabContent = $this.children( '.tabbertab' ),
-			    nav = $( '<ul>' ).addClass( 'tabbernav' );
-			tabContent.each( function() {
+				tabContent = $this.children( '.tabbertab' ),
+				nav = $( '<ul>' ).addClass( 'tabbernav' );
+			tabContent.each( function () {
 				var anchor = $( '<a>' )
 					.text( this.title )
 					.attr( 'title', this.title )
@@ -37,7 +37,7 @@
 			}
 
 			// Repond to clicks on the nav tabs
-			nav.on( 'click', 'a', function( e ) {
+			nav.on( 'click', 'a', function ( e ) {
 				var title = $( this ).attr( 'title' );
 				e.preventDefault();
 				location.hash = '#' + title;
@@ -47,8 +47,8 @@
 			$this.addClass( 'tabberlive' );
 		} );
 	};
-} )( jQuery );
+}() );
 
-$( function() {
+$( function () {
 	$( '.tabber' ).tabber();
 } );
