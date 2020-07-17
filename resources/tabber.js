@@ -16,7 +16,8 @@
 
 			/**
 			 * Internal helper function for showing content
-			 * @param string title to show, matching only 1 tab
+			 *
+			 * @param {string} title to show, matching only 1 tab
 			 * @return true if matching tab could be shown
 			 */
 			function showContent( title ) {
