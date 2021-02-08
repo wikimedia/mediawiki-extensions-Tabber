@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Xiaomingyan",
-			"Yfdyh000"
+			"Yfdyh000",
+			"铁桶"
 		]
 	},
-	"tabber-desc": "允许在页面内创建标签页"
+	"tabber-desc": "可以在页面内创建分页"
 }
